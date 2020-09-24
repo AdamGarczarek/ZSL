@@ -71,4 +71,38 @@
   echo $y; //6
   echo ++$x; //7
 
+// operatory rzutowania
+// int, float, string, array, oject, unset
+
+  $test1 = '123abc45';
+
+  echo 'Typ danych $test1: ', gettype($test1);
+  $test1 = (int)$test1;
+  echo "<br>$test1<br>"
+  echo 'Typ danych $test1: ', gettype($test1), '<hr>';
+
+  $test2 = 0;
+
+  echo 'Typ danych $test2: ', gettype($test2); $test2 = (bool)$test2;
+  echo "<br>$test2<br>" // false
+  echo 'Typ danych $test2: ', gettype($test2), '<hr>';
+
+  $test3 = 10;
+
+  echo 'Typ danych $test3: ', gettype($test3); $test3 = (float)$test3;
+  echo "<br>$test3<br>"
+  echo 'Typ danych $test3: ', gettype($test3), '<hr>';
+
+
+
+  echo 'Typ danych $x: ', gettype($test3);
+  $x = (unset)$test3;
+  echo "<br>$x<br>"
+  echo 'Typ danych $x: ', gettype($x), '<hr>';
+
+  // rozmiar typu intiger
+    echo PHP_INT_SIZE, '<hr>'; //8
+
+  // kontrola typu zmiennych
+
   ?>
