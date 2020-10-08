@@ -45,10 +45,58 @@ LOREM;
   echo 'Długość $name: ', strlen($name); //4
   echo '<BR>Długość $name1: ', strlen($name1); //7
 
-  echo strlrn(ltrim($name1)); //5
-  echo strlrn(rtrim($name1)); //6
-  echo strlrn(trim($name1)); //4
+  echo strlen(ltrim($name1)); //5
+  echo strlen(rtrim($name1)); //6
+  echo strlen(trim($name1)); //4
 
-  $
+  $name1 = trim($name1);
+  echo strlen($name1); //4
+
+// czyszczenie zawartości bufora
+  ob_clean();
+
+// przetwarzanie ciągów znaków
+  $replace = str_replace('%imie%', "Janusz", "Masz na imię: %imie%");
+  echo "$replace<hr>";
+
+// przetwarzanie ciągów znaków (zamiana polskich znaków)
+  $login = 'bączek';
+  $censure = array('ą', 'ę', 'ć', 'ź', 'ż', 'ń', 'ł', 'ó', 'ś');
+  $replace = array('a', 'e', 'c', 'z', 'z', 'n', 'l', 'o', 's');
+
+  $correctLogin = str_replace($censure, $replace, $login);
+  echo "Login: $login<br>Poprawny login: $correctLogin";
+
+// przeszukiwanie
+  $address = "Poznań, ul. Polna 4, tel. (61) 123 44 55";
+  $search = strchr($address, 'tel');
+  echo $search; //tel. (61) 123 44 55
+
+  $address = "Poznań, ul. Polna 4, tel. (61) 123 44 55";
+  $search = strchr($address, 'tel', true);
+  echo $search; //Poznań, ul. Polna 4,
+
+  $address = "Poznań, ul. Polna 4, tel. (61) 123 44 55";
+  $search = strchr($address, 'Tel', true);
+  echo $search; //tel. (61) 123 44 55
+
+  $mail = strchr('zsl@gmail.com', '@');
+  echo $mail; //@gmail.com
+
+  $mail = strchr('zsl@gmail.com', 64);
+  echo "$mail<hr>"; //@gmail.com
+
+// substr
+  $name = "anna";
+  echo substr($name, 0),'<br>'; //anna
+  echo substr($name, 2),'<br>'; //na
+  echo substr($name, 1, 2),'<br>'; //am
+  $name = 'Tomasz';
+  echo substr($name, 2, 3); //mas
+
+//  Pobierz domenę z dowolnego adresu poczty elektronicznej
+  $mail = 'janusz@gmail.com';
+  echo substr(strchr('janusz@gmail.com', '@'), 1);
+
 
 ?>
